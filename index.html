@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio website for Samuel Amos">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header role="banner">
+        <h1>Samuel Amos</h1>
+        <nav role="navigation">
+            <div class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </div>
+            <ul id="nav-menu">
+                <li><a href="#about" tabindex="0">About</a></li>
+                <li><a href="#projects" tabindex="0">Projects</a></li>
+                <li><a href="#skills" tabindex="0">Skills</a></li>
+                <li><a href="#contact" tabindex="0">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main role="main">
+        <section id="about-me" role="region" aria-labelledby="about-me-heading">
+            <h2 id="about-me-heading">About Me</h2>
+            <p>
+                I am a passionate web developer with a strong background in creating dynamic and responsive websites. With expertise in HTML, CSS, JavaScript, and modern frameworks like React and Node.js, I enjoy building user-friendly and accessible web applications. My goal is to continuously learn and improve my skills to deliver high-quality projects that meet client needs and exceed expectations.
+            </p>
+        </section>
+        <section id="projects" role="region" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
+            <div class="filter-buttons">
+                <button onclick="filterProjects('all')">All</button>
+                <button onclick="filterProjects('web')">Web</button>
+                <button onclick="filterProjects('mobile')">Mobile</button>
+            </div>
+            <div class="projects-container">
+                <article class="project" data-category="web" role="article">
+                    <h3>Project One</h3>
+                    <p>Short description of Project One.</p>
+                    <figure>
+                        <img src="assets/website1.jpg" alt="Screenshot of Project One" onclick="openLightbox(this)">
+                        <figcaption>Screenshot of Project One</figcaption>
+                    </figure>
+                </article>
+                <article class="project" data-category="mobile" role="article">
+                    <h3>Project Two</h3>
+                    <p>Short description of Project Two.</p>
+                    <figure>
+                        <img src="assets/mobile.png" alt="Screenshot of Project Two" onclick="openLightbox(this)">
+                        <figcaption>Screenshot of Project Two</figcaption>
+                    </figure>
+                </article>
+                <article class="project" data-category="web" role="article">
+                    <h3>Project Three</h3>
+                    <p>Short description of Project Three.</p>
+                    <figure>
+                        <img src="assets/website2.jpeg" alt="Screenshot of Project Three" onclick="openLightbox(this)">
+                        <figcaption>Screenshot of Project Three</figcaption>
+                    </figure>
+                </article>
+            </div>
+        </section>
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+        <section id="skills" role="region" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node.js</li>
+            </ul>
+        </section>
+        <section id="contact" role="form" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact</h2>
+            <form id="contact-form" action="submit_form.php" method="post" onsubmit="return validateForm()">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <span id="name-error" class="error-message"></span>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span id="email-error" class="error-message"></span>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <span id="message-error" class="error-message"></span>
+                
+                <button type="submit" tabindex="0">Send</button>
+            </form>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
